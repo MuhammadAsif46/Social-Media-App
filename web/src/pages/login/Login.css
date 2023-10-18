@@ -82,6 +82,11 @@ p.app-text{
         flex-direction: column;
         margin-top: 2rem;
     }
+    div.container-signup{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
     div.app-name{
         font-size: 2.1rem;
         text-align: center;
@@ -98,6 +103,12 @@ p.app-text{
         display: flex;
         flex-direction: column;
         margin-top: 2rem;
+    }
+
+    div.container-signup{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
     }
     div.app-name{
         font-size: 1.7rem;
