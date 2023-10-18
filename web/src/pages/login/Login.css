@@ -20,7 +20,6 @@ div.container-login{
 }
 
 
-
 div.first-child{
     padding: 1rem;
 }
@@ -57,6 +56,11 @@ div.second-child{
     width: 15rem
 }
 
+.question{
+    text-align: center;
+    margin-top: 1rem;
+}
+
 /*  */
 
 div.app-name{
@@ -85,6 +89,40 @@ p.app-text{
     p.app-text{
         font-size: 1.25rem;
         line-height: 1.4rem;
+    }
+
+}
+
+@media only screen and (min-width: 290px) and (max-width: 449px){
+    div.container-login{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    div.app-name{
+        font-size: 1.7rem;
+        text-align: center;
+    }
+    p.app-text{
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+    }
+    .input-fields{
+        font-size: 1rem;
+    }
+    div.first-child{
+        padding: 0;
+    }
+    .loginBtn{
+        width: 14.1rem;
+    }
+    .question{
+        text-align: left;
+        margin-left: 1rem;
+    }
+    .newBtn{
+        margin: 0rem 1rem;
+        width: 12rem;
     }
 
 }

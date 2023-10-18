@@ -92,7 +92,7 @@ const Login = () => {
 
           <button class="btn btn-primary loginBtn" type="submit">Login</button>
           <br />
-          <p style={{textAlign: "center", marginTop: "1rem"}}>Do not have an account? </p>
+          <p className="question">Do not have an account? </p>
           <hr />
           <div>
           <Link class="btn btn-success newBtn" to={`/signup`}>Create New Account</Link></div>
