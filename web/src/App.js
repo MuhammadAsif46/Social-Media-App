@@ -146,7 +146,7 @@ const App = () => {
       {/* unAuth routes */}
       {state.isLogin === false ? (
         <>
-          <nav>
+          {/* <nav>
             <ul className="nav-bar">
               <li>
                 <Link class="btn btn-outline-primary login-page-navBar" to={`/login`}>Login</Link>
@@ -155,7 +155,7 @@ const App = () => {
                 <Link class="btn btn-outline-primary login-page-navBar" to={`/signup`}>Signup</Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
 
           <Routes>
             <Route path="login" element={<Login />} />

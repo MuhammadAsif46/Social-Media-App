@@ -58,7 +58,7 @@ const Login = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container-login">
       <div className="first-child">
         <div className="app-name">Social Media App</div>
         <p className="app-text">Social Media App helps you connect and<br />share with the people.</p>
