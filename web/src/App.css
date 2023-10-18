@@ -1,0 +1,19 @@
+a{
+    text-decoration: none;
+    color: inherit;
+    list-style: none;
+}
+
+
+.nav-bar{
+    /* border: 2px solid black; */
+    display: flex;
+    /* background-color: aqua; */
+    padding: 1rem;
+    list-style: none;
+}
+
+.login-page-navBar{
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+}
