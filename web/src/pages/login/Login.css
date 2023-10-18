@@ -33,13 +33,13 @@ div.second-child{
 
 /* login form styles */
 
-.login-email,
-.login-password{
+.input-fields{
     margin: 0.5rem 0;
     height: 3rem;
     font-size: 1.5rem;
     padding: 1rem;
     border-radius: 5px;
+    border: 2px solid #777;
 }
 
 

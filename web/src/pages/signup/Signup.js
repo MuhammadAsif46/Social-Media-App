@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./Signup.css";
 import { baseUrl } from "../../core";
+import { Link } from "react-router-dom";
 
 import { GlobalContext } from "../../context/Context";
 
@@ -63,57 +64,63 @@ const Signup = () => {
       </div>
       <div className="second-child">
         <form id="signup" onSubmit={SignupSubmitHandler}>
-          <label htmlFor="firstNameInput">FirstName:</label>
           <input
             ref={firstNameInputRef}
             type="text"
             autoComplete="given-name"
             name="firstNameInput"
             id="firstNameInput"
+            className="input-fields"
+            placeholder="FirstName"
             required
           />
 
           <br />
-          <label htmlFor="lastNameInput">LastName:</label>
           <input
             ref={lastNameInputRef}
             type="text"
             autoComplete="family-name"
             name="lastNameInput"
             id="lastNameInput"
+            className="input-fields"
+            placeholder="LastName"
             required
           />
 
           <br />
-          <label htmlFor="emailInput">Email:</label>
           <input
             ref={emailInputRef}
             type="email"
             autoComplete="email"
             name="emailInput"
             id="emailInput"
+            className="input-fields"
+            placeholder="Example@gmail.com"
             required
           />
 
           <br />
-          <label htmlFor="passwordInput">Password:</label>
           <input
             ref={passwordInputRef}
             type="password"
             autoComplete="new-password"
             name="passwordInput"
             id="passwordInput"
+            className="input-fields"
+            placeholder="Password"
             required
           />
 
           <br />
-          <label htmlFor="repeatpasswordInput">Repeat Password:</label>
           <input
             ref={repeatPasswordInputRef}
             type="password"
             autoComplete="new-password"
             name="repeatpasswordInput"
             id="repeatpasswordInput"
+            className="input-fields"
+            placeholder="Repeat Password"
+            required
           />
           <p
             className={`errorMessage ${passwordErrorClass}`}
@@ -124,7 +131,12 @@ const Signup = () => {
 
           <br />
 
-          <button type="submit">Sign Up</button>
+          <button class="btn btn-primary loginBtn" type="submit">Sign Up</button>
+          <br />
+          <p style={{textAlign: "center", marginTop: "1rem"}}>Already have an account? </p>
+          <hr />
+          <div>
+          <Link class="btn btn-success newBtn" to={`/login`}> Login </Link></div>
 
           <div className="alertMessage">{alertMessage}</div>
           <div className="errorMessage">{errorMessage}</div>

@@ -71,7 +71,7 @@ const Login = () => {
             autoComplete="email"
             name="emailInput"
             id="emailInput"
-            className="login-email"
+            className="input-fields"
             placeholder="Example@gmail.com"
             required
           />
@@ -85,7 +85,7 @@ const Login = () => {
             name="passwordInput"
             placeholder="Password"
             id="passwordInput"
-            className="login-password"
+            className="input-fields"
           />
 
           <br />
@@ -105,4 +105,3 @@ const Login = () => {
 };
 export default Login;
 
-// "Already have an account?
