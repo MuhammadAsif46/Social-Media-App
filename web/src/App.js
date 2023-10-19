@@ -162,7 +162,6 @@ const App = () => {
               </div>
             </div>
           </nav>
-          <hr />
           <Routes>
             <Route
               path="/"

@@ -134,7 +134,7 @@ export default function Home({ profileImg, userName, date }) {
   };
 
   return (
-    <div>
+    <div className="home-page">
       <div className="search-bar">
         <form onSubmit={searchHandler} style={{ textAlign: "left" }}>
           <input type="search" placeholder="Search..." ref={searchInputRef} />
@@ -145,7 +145,7 @@ export default function Home({ profileImg, userName, date }) {
 
       <div className="main">
         <form id="formReset" onSubmit={submitHandler} className="form-card">
-          <div className="post-main">
+          <div className="post-create">
             <div className="post-header">
               <img src={profileImg} width={65} height={65} alt="my-image" />
               <div>

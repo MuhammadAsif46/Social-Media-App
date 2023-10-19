@@ -21,6 +21,7 @@ a{
 .home-page-header{
     display: flex;
     justify-content: space-between;
+    background-color: #b7e4c7;
 }
 
 div.home-second-child{

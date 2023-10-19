@@ -13,6 +13,9 @@ body{
     background-color: #fff;
   }
 
+div.home-page{
+    background-color: #52b788;
+}
 /* create post styles */
 
 .form-card{
@@ -24,9 +27,15 @@ body{
   .post-main{
     margin: 1rem 1rem;
     padding: 1rem 1.5rem;
-    border: 2px solid #59626B;
     width: 55%;
-    background-color: darkseagreen;
+    background-color: #b7e4c7;
+  }
+
+  .post-create{
+    margin: 1rem 1rem;
+    padding: 1rem 1.5rem;
+    width: 55%;
+    background-color: #fff;
   }
   .post-header{
     display: flex;
@@ -89,17 +98,16 @@ div.home-all-post{
 }
 
 div.post-data{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    background-color: #2d6a4f;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15rem;
+    height: 23rem;
     margin-top: 1rem;
 }
 
-div.my-post{
-    border: 2px solid red;
-    
-    /* align-items: center; */
-    /* align-self: center; */
+div.my-post{ 
+    color: #fff;
+    /* font-size: 2rem; */
 }
