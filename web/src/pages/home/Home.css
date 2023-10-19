@@ -111,3 +111,16 @@ div.my-post{
     color: #fff;
     /* font-size: 2rem; */
 }
+
+
+/* Edit & Delete Buttons Styles*/
+
+div.buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.editBtn,
+.deleteBtn{
+    width: 25%;
+}

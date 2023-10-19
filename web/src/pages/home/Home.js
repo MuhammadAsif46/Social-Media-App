@@ -265,22 +265,26 @@ export default function Home({ profileImg, userName, date }) {
                     </div>
                   </div>
                   <br />
-                  <button
-                    onClick={(e) => {
-                      allPosts[index].isEdit = true;
-                      setAllPosts([...allPosts]);
-                    }}
-                  >
-                    Edit
-                  </button>
+                  <div className="buttons">
+                    <button
+                      class="btn btn-outline-light editBtn"
+                      onClick={(e) => {
+                        allPosts[index].isEdit = true;
+                        setAllPosts([...allPosts]);
+                      }}
+                    >
+                      Edit
+                    </button>
 
-                  <button
-                    onClick={(e) => {
-                      deletePostHandler(post._id);
-                    }}
-                  >
-                    Delete
-                  </button>
+                    <button
+                      class="btn btn-outline-light deleteBtn"
+                      onClick={(e) => {
+                        deletePostHandler(post._id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
