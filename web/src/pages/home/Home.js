@@ -2,8 +2,11 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import "./Home.css";
 import { baseUrl } from "../../core";
+import { GoFileMedia } from 'react-icons/go';
+import { BsCalendarEvent } from 'react-icons/bs';
+import { PiArticle } from 'react-icons/pi';
 
-export default function Home() {
+export default function Home({ profileImg, name, date }) {
   const postTextInputRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -139,19 +142,40 @@ export default function Home() {
 
       <div className="main">
         <form id="formReset" onSubmit={submitHandler} className="form-card">
-          <div className="form-value">
-            
+          <div className="post-main">
+            <div className="post-header">
+              <img src={profileImg} width={65} height={65} alt="my-image" />
+              <div>
+                <h1>{name}</h1>
+                <div className="date">{date}</div>
+              </div>
+            </div>
             <textarea
               id="postTextInput"
               type="text"
               minLength={2}
               maxLength={999}
               ref={postTextInputRef}
+              className="post-area"
+              placeholder="What's on your mind?"
               required
             ></textarea>
             <br />
-            <br />
-            <button type="submit">Publist Post</button>
+            <div className="post-footer">
+              <div className="btn">
+                <GoFileMedia />
+                Media
+              </div>
+              <div className="btn">
+                <BsCalendarEvent /> Event
+              </div>
+              <div className="btn">
+                <PiArticle /> Write Article
+              </div>
+            </div>
+            <div>
+                <button className="btn btn-primary" type="submit">Publist Post</button>
+            </div>
             <span>
               {alert && alert}
               {isLoading && "Loading...."}

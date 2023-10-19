@@ -171,7 +171,6 @@ const App = () => {
                   profileImg={profileImg1}
                   name="Muhammad Asif"
                   date="12-Jan-2022 3:50 pm"
-                  bodyText="this is my new post"
                 />
               }
             />
