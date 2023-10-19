@@ -131,7 +131,7 @@ export default function Home({ profileImg, name, date }) {
   };
 
   return (
-    <div className="container">
+    <div >
       <div className="search-bar">
         <form onSubmit={searchHandler} style={{ textAlign: "left" }}>
           <input type="search" placeholder="Search..." ref={searchInputRef} />
@@ -146,7 +146,7 @@ export default function Home({ profileImg, name, date }) {
             <div className="post-header">
               <img src={profileImg} width={65} height={65} alt="my-image" />
               <div>
-                <h1>{name}</h1>
+                <div className="post-name">{name}</div>
                 <div className="date">{date}</div>
               </div>
             </div>
@@ -163,17 +163,19 @@ export default function Home({ profileImg, name, date }) {
             <br />
             <div className="post-footer">
               <div className="btn">
-                <GoFileMedia />
+                <GoFileMedia style={{color: "blue", marginRight: "5px"}}/>
                 Media
               </div>
               <div className="btn">
-                <BsCalendarEvent /> Event
+                <BsCalendarEvent style={{color: "orange", marginRight: "5px"}}/> 
+                Event
               </div>
               <div className="btn">
-                <PiArticle /> Write Article
+                <PiArticle style={{color: "red", marginRight: "5px"}}/> 
+                Write Article
               </div>
             </div>
-            <div>
+            <div className="post-btn">
                 <button className="btn btn-primary" type="submit">Publist Post</button>
             </div>
             <span>

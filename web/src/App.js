@@ -74,7 +74,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div >
       {/* admin routes */}
       {state.isLogin === true && state.role === "admin" ? (
         <>
