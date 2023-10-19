@@ -240,24 +240,31 @@ export default function Home({ profileImg, userName, date }) {
                       <div className="date">{date}</div>
                     </div>
                   </div>
-                  <p>{post.text}</p>
+                  <div className="post-data">
+                    <div className="my-post">{post.text}</div>
+                  </div>
                   <br />
                   <div className="post-footer">
-              <div className="btn">
-                <GoFileMedia style={{ color: "blue", marginRight: "5px" }} />
-                Media
-              </div>
-              <div className="btn">
-                <BsCalendarEvent
-                  style={{ color: "orange", marginRight: "5px" }}
-                />
-                Event
-              </div>
-              <div className="btn">
-                <PiArticle style={{ color: "red", marginRight: "5px" }} />
-                Write Article
-              </div>
-            </div>
+                    <div className="btn">
+                      <AiOutlineLike
+                        style={{ color: "blue", marginRight: "5px" }}
+                      />
+                      Like
+                    </div>
+                    <div className="btn">
+                      <BiCommentDetail
+                        style={{ color: "orange", marginRight: "5px" }}
+                      />
+                      Comment
+                    </div>
+                    <div className="btn">
+                      <PiShareFat
+                        style={{ color: "red", marginRight: "5px" }}
+                      />
+                      Share
+                    </div>
+                  </div>
+                  <br />
                   <button
                     onClick={(e) => {
                       allPosts[index].isEdit = true;
