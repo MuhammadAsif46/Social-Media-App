@@ -169,7 +169,7 @@ const App = () => {
               element={
                 <Home
                   profileImg={profileImg1}
-                  name="Muhammad Asif"
+                  userName="Muhammad Asif"
                   date="12-Jan-2022 3:50 pm"
                 />
               }

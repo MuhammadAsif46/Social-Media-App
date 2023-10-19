@@ -2,11 +2,14 @@ import axios from "axios";
 import { useEffect, useRef, useState, useContext } from "react";
 import "./Profile.css";
 import { baseUrl } from "../../core";
+import { GoFileMedia } from 'react-icons/go';
+import { BsCalendarEvent } from 'react-icons/bs';
+import { PiArticle } from 'react-icons/pi';
 
 import { GlobalContext } from "../../context/Context";
 import { useParams } from "react-router-dom";
 
-export default function Profile() {
+export default function Profile({profileImg, userName, date}) {
   const { state, dispatch } = useContext(GlobalContext);
 
   const postTitleInputRef = useRef(null);
@@ -149,38 +152,81 @@ export default function Profile() {
   };
 
   return (
-    <div className="home">
+    <div className="profile">
       {state.user._id === userId && (
-        <form id="formReset" onSubmit={submitHandler}>
-          <label htmlFor="postTitleInput"> Post Title: </label>
-          <input
-            id="postTitleInput"
-            type="text"
-            minLength={2}
-            maxLength={20}
-            ref={postTitleInputRef}
-            required
-          />
-          <br />
-          <br />
-
-          <label htmlFor="postBodyInput"> Post Body: </label>
+        <form id="formReset" onSubmit={submitHandler} className="form-card">
+        <div className="post-main">
+          <div className="post-header">
+            <img src={profileImg} width={65} height={65} alt="my-image" />
+            <div>
+              <div className="post-name">{userName}</div>
+              <div className="date">{date}</div>
+            </div>
+          </div>
           <textarea
-            id="postBodyInput"
+            id="postTextInput"
             type="text"
             minLength={2}
             maxLength={999}
             ref={postTextInputRef}
+            className="post-area"
+            placeholder="What's on your mind?"
             required
           ></textarea>
           <br />
-          <br />
-          <button type="submit">Publist Post</button>
+          <div className="post-footer">
+            <div className="btn">
+              <GoFileMedia style={{color: "blue", marginRight: "5px"}}/>
+              Media
+            </div>
+            <div className="btn">
+              <BsCalendarEvent style={{color: "orange", marginRight: "5px"}}/> 
+              Event
+            </div>
+            <div className="btn">
+              <PiArticle style={{color: "red", marginRight: "5px"}}/> 
+              Write Article
+            </div>
+          </div>
+          <div className="post-btn-main">
+              <button className="btn btn-primary post-btn" type="submit">Publist Post</button>
+          </div>
           <span>
             {alert && alert}
             {isLoading && "Loading...."}
           </span>
-        </form>
+        </div>
+      </form>
+        // <form id="formReset" onSubmit={submitHandler}>
+        //   <label htmlFor="postTitleInput"> Post Title: </label>
+        //   <input
+        //     id="postTitleInput"
+        //     type="text"
+        //     minLength={2}
+        //     maxLength={20}
+        //     ref={postTitleInputRef}
+        //     required
+        //   />
+        //   <br />
+        //   <br />
+
+        //   <label htmlFor="postBodyInput"> Post Body: </label>
+        //   <textarea
+        //     id="postBodyInput"
+        //     type="text"
+        //     minLength={2}
+        //     maxLength={999}
+        //     ref={postTextInputRef}
+        //     required
+        //   ></textarea>
+        //   <br />
+        //   <br />
+        //   <button type="submit">Publist Post</button>
+        //   <span>
+        //     {alert && alert}
+        //     {isLoading && "Loading...."}
+        //   </span>
+        // </form>
       )}
       <hr />
 

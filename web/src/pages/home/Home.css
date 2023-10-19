@@ -1,4 +1,4 @@
-div.all-post{
+/* div.all-post{
     padding: 1rem;
 }
 
@@ -8,7 +8,7 @@ div.post{
     box-shadow: 0px 0px 10px #000;
     padding: 0.8rem;
     margin: 1rem;
-}
+} */
 body{
     background-color: #fff;
   }
@@ -18,17 +18,16 @@ body{
 .form-card{
     display: flex;
     justify-content: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
   
   .post-main{
     margin: 1rem 1rem;
     padding: 1rem 1.5rem;
-    border: 2px solid red;
+    border: 2px solid #59626B;
     width: 55%;
   }
   .post-header{
-    /* border: 1px solid blue; */
     display: flex;
     gap: 0.5rem;
   }
@@ -44,33 +43,26 @@ body{
     color: #bababc;
   }
   .post-main .postImg{
-    /* border: 1px solid black; */
     width: 100%;
     height: 300px;
   }
-  
-  /* div.post-main .para{
-    margin: 10px 0;
-  } */
 
   .post-area{
     width: 100%;
     border: none;
-    height: 250px;
+    height: 230px;
     font-size: 1.7rem;
     padding-left: 0.3rem;
     margin-top: 10px;
 }
   
   .post-footer{
-    /* border: 2px solid purple; */
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
   }
   
   .post-footer .btn{
-    /* border: 1px solid green; */
     color: #59626B;
     background-color: #F2F2F2;
     border-radius: 8px;
@@ -79,4 +71,12 @@ body{
     flex-grow: 1;
     text-align: center;
   }
-  
+div.post-btn-main{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; 
+}
+
+.post-btn{
+    width: 80%;
+}

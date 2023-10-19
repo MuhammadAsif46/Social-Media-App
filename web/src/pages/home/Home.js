@@ -6,7 +6,7 @@ import { GoFileMedia } from 'react-icons/go';
 import { BsCalendarEvent } from 'react-icons/bs';
 import { PiArticle } from 'react-icons/pi';
 
-export default function Home({ profileImg, name, date }) {
+export default function Home({ profileImg, userName, date }) {
   const postTextInputRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -146,7 +146,7 @@ export default function Home({ profileImg, name, date }) {
             <div className="post-header">
               <img src={profileImg} width={65} height={65} alt="my-image" />
               <div>
-                <div className="post-name">{name}</div>
+                <div className="post-name">{userName}</div>
                 <div className="date">{date}</div>
               </div>
             </div>
@@ -175,8 +175,8 @@ export default function Home({ profileImg, name, date }) {
                 Write Article
               </div>
             </div>
-            <div className="post-btn">
-                <button className="btn btn-primary" type="submit">Publist Post</button>
+            <div className="post-btn-main">
+                <button className="btn btn-primary post-btn" type="submit">Publist Post</button>
             </div>
             <span>
               {alert && alert}
