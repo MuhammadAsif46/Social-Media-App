@@ -77,8 +77,8 @@ const App = () => {
       {/* admin routes */}
       {state.isLogin === true && state.role === "admin" ? (
         <>
-          <nav >
-            <ul >
+          <nav>
+            <ul>
               <li>
                 <Link to={`/`}> Admin Home</Link>
               </li>
@@ -92,7 +92,7 @@ const App = () => {
                 <Link to={`/about`}> Admin About</Link>
               </li>
             </ul>
-            <div >
+            <div>
               {state.user.email}
               <button onClick={logoutHandler}>logout</button>
             </div>
@@ -111,28 +111,55 @@ const App = () => {
 
       {/* user routes */}
       {state.isLogin === true && state.role === "user" ? (
+        
         <>
-          <nav >
-            <ul className="nav-bar">
-              <li>
-                <Link className="home-page-navBar" to={`/`}>Home</Link>
-              </li>
-              <li>
-                <Link className="home-page-navBar" to={`/profile/${state.user._id}`}>Profile</Link>
-              </li>
-              <li>
-                <Link className="home-page-navBar" to={`/chat`}>Chat</Link>
-              </li>
-              <li>
-                <Link className="home-page-navBar" to={`/about`}>About</Link>
-              </li>
-            </ul>
-            <div>
-              {state.user.email}
-              <button onClick={logoutHandler}>logout</button>
+          <nav className="home-page-header">
+            <div className="home-first-child">
+              <ul className="nav-bar">
+                <li style={{display: "flex"}}>
+                  <Link
+                    class="btn btn-outline-primary home-page-navBar"
+                    to={`/`}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    class="btn btn-outline-primary home-page-navBar"
+                    to={`/profile/${state.user._id}`}
+                  >
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    class="btn btn-outline-primary home-page-navBar"
+                    to={`/chat`}
+                  >
+                    Chat
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    class="btn btn-outline-primary home-page-navBar"
+                    to={`/about`}
+                  >
+                    About
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="home-second-child">
+              <div>{state.user.email}</div>
+              <div>
+                <button class="btn btn-outline-danger logoutBtn" onClick={logoutHandler}>
+                  logout
+                </button>
+              </div>
             </div>
           </nav>
-
+          <hr />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="about" element={<About />} />

@@ -8,14 +8,24 @@ a{
 .nav-bar{
     /* border: 2px solid black; */
     display: flex;
-    /* background-color: aqua; */
+    /* align-items: center; */
     padding: 1rem;
     list-style: none;
 }
 
-.login-page-navBar{
+.home-page-navBar, .logoutBtn{
     margin: 0 0.5rem;
     font-size: 1.2rem;
 }
 
+
+.home-page-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+div.home-second-child{
+    display: flex;
+    align-items: center;
+}
 
