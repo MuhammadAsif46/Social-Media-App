@@ -74,7 +74,7 @@ const App = () => {
   };
 
   return (
-    <div >
+    <div>
       {/* admin routes */}
       {state.isLogin === true && state.role === "admin" ? (
         <>
@@ -176,7 +176,16 @@ const App = () => {
             />
             <Route path="about" element={<About />} />
             <Route path="chat" element={<Chat />} />
-            <Route path="profile/:userId" element={<Profile />} />
+            <Route
+              path="profile/:userId"
+              element={
+                <Profile
+                  profileImg={profileImg1}
+                  userName="Muhammad Asif"
+                  date="12-Jan-2022 3:50 pm"
+                />
+              }
+            />
 
             <Route path="*" element={<Navigate to="/" replace={true} />} />
           </Routes>
