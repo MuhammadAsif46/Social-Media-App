@@ -9,6 +9,7 @@ import { PiArticle } from 'react-icons/pi';
 import { GlobalContext } from "../../context/Context";
 import { useParams } from "react-router-dom";
 
+
 export default function Profile({profileImg, userName, date}) {
   const { state, dispatch } = useContext(GlobalContext);
 

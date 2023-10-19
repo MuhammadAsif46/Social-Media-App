@@ -2,9 +2,12 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import "./Home.css";
 import { baseUrl } from "../../core";
-import { GoFileMedia } from 'react-icons/go';
-import { BsCalendarEvent } from 'react-icons/bs';
-import { PiArticle } from 'react-icons/pi';
+import { GoFileMedia } from "react-icons/go";
+import { BsCalendarEvent } from "react-icons/bs";
+import { PiArticle } from "react-icons/pi";
+import { AiOutlineLike } from "react-icons/ai";
+import { BiCommentDetail } from "react-icons/bi";
+import { PiShareFat } from "react-icons/pi";
 
 export default function Home({ profileImg, userName, date }) {
   const postTextInputRef = useRef(null);
@@ -131,7 +134,7 @@ export default function Home({ profileImg, userName, date }) {
   };
 
   return (
-    <div >
+    <div>
       <div className="search-bar">
         <form onSubmit={searchHandler} style={{ textAlign: "left" }}>
           <input type="search" placeholder="Search..." ref={searchInputRef} />
@@ -163,20 +166,24 @@ export default function Home({ profileImg, userName, date }) {
             <br />
             <div className="post-footer">
               <div className="btn">
-                <GoFileMedia style={{color: "blue", marginRight: "5px"}}/>
+                <GoFileMedia style={{ color: "blue", marginRight: "5px" }} />
                 Media
               </div>
               <div className="btn">
-                <BsCalendarEvent style={{color: "orange", marginRight: "5px"}}/> 
+                <BsCalendarEvent
+                  style={{ color: "orange", marginRight: "5px" }}
+                />
                 Event
               </div>
               <div className="btn">
-                <PiArticle style={{color: "red", marginRight: "5px"}}/> 
+                <PiArticle style={{ color: "red", marginRight: "5px" }} />
                 Write Article
               </div>
             </div>
             <div className="post-btn-main">
-                <button className="btn btn-primary post-btn" type="submit">Publist Post</button>
+              <button className="btn btn-primary post-btn" type="submit">
+                Publist Post
+              </button>
             </div>
             <span>
               {alert && alert}
@@ -219,26 +226,55 @@ export default function Home({ profileImg, userName, date }) {
               </form>
             ) : (
               // edit post form
-              <div>
-                <h2>{post.title}</h2>
-                <p>{post.text}</p>
-                <br />
-                <button
-                  onClick={(e) => {
-                    allPosts[index].isEdit = true;
-                    setAllPosts([...allPosts]);
-                  }}
-                >
-                  Edit
-                </button>
+              <div className="form-card">
+                <div className="post-main">
+                  <div className="post-header">
+                    <img
+                      src={profileImg}
+                      width={65}
+                      height={65}
+                      alt="my-image"
+                    />
+                    <div>
+                      <div className="post-name">{userName}</div>
+                      <div className="date">{date}</div>
+                    </div>
+                  </div>
+                  <p>{post.text}</p>
+                  <br />
+                  <div className="post-footer">
+              <div className="btn">
+                <GoFileMedia style={{ color: "blue", marginRight: "5px" }} />
+                Media
+              </div>
+              <div className="btn">
+                <BsCalendarEvent
+                  style={{ color: "orange", marginRight: "5px" }}
+                />
+                Event
+              </div>
+              <div className="btn">
+                <PiArticle style={{ color: "red", marginRight: "5px" }} />
+                Write Article
+              </div>
+            </div>
+                  <button
+                    onClick={(e) => {
+                      allPosts[index].isEdit = true;
+                      setAllPosts([...allPosts]);
+                    }}
+                  >
+                    Edit
+                  </button>
 
-                <button
-                  onClick={(e) => {
-                    deletePostHandler(post._id);
-                  }}
-                >
-                  Delete
-                </button>
+                  <button
+                    onClick={(e) => {
+                      deletePostHandler(post._id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             )}
           </div>

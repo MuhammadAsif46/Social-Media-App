@@ -80,3 +80,9 @@ div.post-btn-main{
 .post-btn{
     width: 80%;
 }
+
+/* all data fetched post */
+
+div.home-all-post{
+    border: 1px solid black;
+}
