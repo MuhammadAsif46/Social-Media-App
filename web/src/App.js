@@ -151,7 +151,7 @@ const App = () => {
               </ul>
             </div>
             <div className="home-second-child">
-              <div>{state.user.email}</div>
+              <div className="login-person-name">{state.user.firstName} {state.user.lastName}</div>
               <div>
                 <button
                   class="btn btn-outline-danger logoutBtn"

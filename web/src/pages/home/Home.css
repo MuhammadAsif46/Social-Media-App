@@ -25,14 +25,13 @@ div.home-page{
   }
   
   .post-main{
-    margin: 1rem 1rem;
+    margin: 1rem 0;
     padding: 1rem 1.5rem;
     width: 55%;
     background-color: #b7e4c7;
   }
 
   .post-create{
-    margin: 1rem 1rem;
     padding: 1rem 1.5rem;
     width: 55%;
     background-color: #fff;
@@ -123,4 +122,21 @@ div.buttons{
 .editBtn,
 .deleteBtn{
     width: 25%;
+}
+
+/* Search Bar styles */
+
+div.search-bar{
+    padding: 0.5rem;
+}
+
+.searching{
+    margin-left: 1rem;
+    border: none;
+    border-radius: 3px;
+    padding: 0.3rem;
+}
+
+.searching:focus{
+    border: 2px solid red;
 }

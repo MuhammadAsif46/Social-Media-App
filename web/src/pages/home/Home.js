@@ -137,7 +137,7 @@ export default function Home({ profileImg, userName, date }) {
     <div className="home-page">
       <div className="search-bar">
         <form onSubmit={searchHandler} style={{ textAlign: "left" }}>
-          <input type="search" placeholder="Search..." ref={searchInputRef} />
+          <input type="search" className="searching" placeholder="Search..." ref={searchInputRef} />
           <button type="submit" hidden></button>
         </form>
       </div>
