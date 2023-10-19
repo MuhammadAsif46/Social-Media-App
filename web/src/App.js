@@ -7,6 +7,7 @@ import Chat from "./pages/chat/Chat";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Profile from "./pages/profile/Profile";
+import profileImg1 from "./assets/my-image.jpg";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import splashScreen from "./assets/splash.gif";
@@ -111,12 +112,11 @@ const App = () => {
 
       {/* user routes */}
       {state.isLogin === true && state.role === "user" ? (
-        
         <>
           <nav className="home-page-header">
             <div className="home-first-child">
               <ul className="nav-bar">
-                <li style={{display: "flex"}}>
+                <li style={{ display: "flex" }}>
                   <Link
                     class="btn btn-outline-primary home-page-navBar"
                     to={`/`}
@@ -153,7 +153,10 @@ const App = () => {
             <div className="home-second-child">
               <div>{state.user.email}</div>
               <div>
-                <button class="btn btn-outline-danger logoutBtn" onClick={logoutHandler}>
+                <button
+                  class="btn btn-outline-danger logoutBtn"
+                  onClick={logoutHandler}
+                >
                   logout
                 </button>
               </div>
@@ -161,7 +164,17 @@ const App = () => {
           </nav>
           <hr />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  profileImg={profileImg1}
+                  name="Muhammad Asif"
+                  date="12-Jan-2022 3:50 pm"
+                  bodyText="this is my new post"
+                />
+              }
+            />
             <Route path="about" element={<About />} />
             <Route path="chat" element={<Chat />} />
             <Route path="profile/:userId" element={<Profile />} />

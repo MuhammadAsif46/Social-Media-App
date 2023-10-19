@@ -6,11 +6,9 @@ a{
 
 
 .nav-bar{
-    /* border: 2px solid black; */
     display: flex;
-    /* align-items: center; */
-    padding: 1rem;
     list-style: none;
+    margin-top: 1rem;
 }
 
 .home-page-navBar, .logoutBtn{
