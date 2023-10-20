@@ -8,6 +8,7 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Profile from "./pages/profile/Profile";
 import profileImg1 from "./assets/my-image.jpg";
+import profileImg2 from "./assets/manImage.jpg";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import splashScreen from "./assets/splash.gif";
@@ -78,29 +79,69 @@ const App = () => {
       {/* admin routes */}
       {state.isLogin === true && state.role === "admin" ? (
         <>
-          <nav>
-            <ul>
-              <li>
-                <Link to={`/`}> Admin Home</Link>
-              </li>
-              <li>
-                <Link to={`/profile/${state.user._id}`}> Admin Profile</Link>
-              </li>
-              <li>
-                <Link to={`/chat`}> Admin Chat</Link>
-              </li>
-              <li>
-                <Link to={`/about`}> Admin About</Link>
-              </li>
-            </ul>
-            <div>
-              {state.user.email}
-              <button onClick={logoutHandler}>logout</button>
+          <nav className="home-page-header">
+            <div className="home-first-child">
+              <ul className="nav-bar">
+                <li style={{ display: "flex" }}>
+                  <Link
+                    class="btn btn-outline-primary home-page-navBar"
+                    to={`/`}
+                  >
+                    {" "}
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    class="btn btn-outline-primary home-page-navBar"
+                    to={`/profile/${state.user._id}`}
+                  >
+                    {" "}
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    class="btn btn-outline-primary home-page-navBar"
+                    to={`/chat`}
+                  >
+                    {" "}
+                    Chat
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    class="btn btn-outline-primary home-page-navBar"
+                    to={`/about`}
+                  >
+                    {" "}
+                    About
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="home-second-child">
+              <div className="login-person-name">
+                (Admin)
+                <br />
+                {state.user.firstName} {state.user.lastName}
+              </div>
+              <div>
+                <button
+                  class="btn btn-outline-danger logoutBtn"
+                  onClick={logoutHandler}
+                >
+                  logout
+                </button>
+              </div>
             </div>
           </nav>
 
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home 
+            profileImg={profileImg2}
+            userName="Farhan Saeed"
+            date="21-Jun-2023 4:50 am"/>} />
             <Route path="about" element={<About />} />
             <Route path="chat" element={<Chat />} />
             <Route path="profile/:userId" element={<Profile />} />
@@ -151,7 +192,9 @@ const App = () => {
               </ul>
             </div>
             <div className="home-second-child">
-              <div className="login-person-name">{state.user.firstName} {state.user.lastName}</div>
+              <div className="login-person-name">
+                {state.user.firstName} {state.user.lastName}
+              </div>
               <div>
                 <button
                   class="btn btn-outline-danger logoutBtn"

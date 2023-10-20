@@ -247,19 +247,19 @@ export default function Home({ profileImg, userName, date }) {
                   <div className="post-footer">
                     <div className="btn">
                       <AiOutlineLike
-                        style={{ color: "blue", marginRight: "5px" }}
+                        style={{ color: "#495057", marginRight: "5px" }}
                       />
                       Like
                     </div>
                     <div className="btn">
                       <BiCommentDetail
-                        style={{ color: "orange", marginRight: "5px" }}
+                        style={{ color: "#495057", marginRight: "5px" }}
                       />
                       Comment
                     </div>
                     <div className="btn">
                       <PiShareFat
-                        style={{ color: "red", marginRight: "5px" }}
+                        style={{ color: "#495057", marginRight: "5px" }}
                       />
                       Share
                     </div>
