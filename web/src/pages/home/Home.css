@@ -138,3 +138,27 @@ div.search-bar{
 .searching:focus{
     border: 2px solid red;
 }
+
+
+/* edit post styles */
+
+.update-btn{
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: green;
+  margin-right: 0.6rem;
+  margin-top: 0.5rem;
+  border: none;
+  color: white;
+}
+
+.cancel-btn{
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: gray;
+  margin-right: 0.6rem;
+  border: none;
+  color: white;
+}
