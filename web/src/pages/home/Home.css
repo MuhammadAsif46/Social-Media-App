@@ -46,10 +46,11 @@ div.home-page{
   }
   .post-name{
     font-size: 1.8rem;
+    color: black;
   }
   
   .date{
-    color: #bababc;
+    color: #6c757d;
   }
   .post-main .postImg{
     width: 100%;
@@ -106,7 +107,7 @@ div.post-data{
     margin-top: 1rem;
 }
 
-div.my-post{ 
+div.all-post{ 
     color: #fff;
     /* font-size: 2rem; */
 }

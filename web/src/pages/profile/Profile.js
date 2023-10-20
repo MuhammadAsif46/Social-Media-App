@@ -5,6 +5,9 @@ import { baseUrl } from "../../core";
 import { GoFileMedia } from 'react-icons/go';
 import { BsCalendarEvent } from 'react-icons/bs';
 import { PiArticle } from 'react-icons/pi';
+import { AiOutlineLike } from "react-icons/ai";
+import { BiCommentDetail } from "react-icons/bi";
+import { PiShareFat } from "react-icons/pi";
 
 import { GlobalContext } from "../../context/Context";
 import { useParams } from "react-router-dom";
@@ -153,10 +156,10 @@ export default function Profile({profileImg, userName, date}) {
   };
 
   return (
-    <div className="profile">
+    <div className="profile-page">
       {state.user._id === userId && (
         <form id="formReset" onSubmit={submitHandler} className="form-card">
-        <div className="post-main">
+        <div className="profile-post-create">
           <div className="post-header">
             <img src={profileImg} width={65} height={65} alt="my-image" />
             <div>
@@ -198,41 +201,10 @@ export default function Profile({profileImg, userName, date}) {
           </span>
         </div>
       </form>
-        // <form id="formReset" onSubmit={submitHandler}>
-        //   <label htmlFor="postTitleInput"> Post Title: </label>
-        //   <input
-        //     id="postTitleInput"
-        //     type="text"
-        //     minLength={2}
-        //     maxLength={20}
-        //     ref={postTitleInputRef}
-        //     required
-        //   />
-        //   <br />
-        //   <br />
-
-        //   <label htmlFor="postBodyInput"> Post Body: </label>
-        //   <textarea
-        //     id="postBodyInput"
-        //     type="text"
-        //     minLength={2}
-        //     maxLength={999}
-        //     ref={postTextInputRef}
-        //     required
-        //   ></textarea>
-        //   <br />
-        //   <br />
-        //   <button type="submit">Publist Post</button>
-        //   <span>
-        //     {alert && alert}
-        //     {isLoading && "Loading...."}
-        //   </span>
-        // </form>
       )}
-      <hr />
 
       <div className="all-post">
-        <div className="banner">
+        {/* <div className="banner">
           <img className="bannerImg" src="./" alt="" />
           <img className="bannerImg" src="./" alt="" />
           <div className="profileName">
@@ -240,7 +212,7 @@ export default function Profile({profileImg, userName, date}) {
               {profile?.data?.firstName} {profile?.data?.lastName}
             </h1>
           </div>
-        </div>
+        </div> */}
 
         {allPosts.map((post, index) => (
           <div className="post" key={post._id}>
@@ -273,26 +245,66 @@ export default function Profile({profileImg, userName, date}) {
               </form>
             ) : (
               // edit post form
-              <div>
-                <h2>{post.title}</h2>
-                <p>{post.text}</p>
-                <br />
-                <button
-                  onClick={(e) => {
-                    allPosts[index].isEdit = true;
-                    setAllPosts([...allPosts]);
-                  }}
-                >
-                  Edit
-                </button>
+              <div className="form-card">
+                <div className="post-main">
+                  <div className="post-header">
+                    <img
+                      src={profileImg}
+                      width={65}
+                      height={65}
+                      alt="my-image"
+                    />
+                    <div>
+                      <div className="post-name">{userName}</div>
+                      <div className="date">{date}</div>
+                    </div>
+                  </div>
+                  <div className="post-data">
+                    <div className="my-post">{post.text}</div>
+                  </div>
+                  <br />
+                  <div className="post-footer">
+                    <div className="btn">
+                      <AiOutlineLike
+                        style={{ color: "blue", marginRight: "5px" }}
+                      />
+                      Like
+                    </div>
+                    <div className="btn">
+                      <BiCommentDetail
+                        style={{ color: "orange", marginRight: "5px" }}
+                      />
+                      Comment
+                    </div>
+                    <div className="btn">
+                      <PiShareFat
+                        style={{ color: "red", marginRight: "5px" }}
+                      />
+                      Share
+                    </div>
+                  </div>
+                  <br />
+                  <div className="buttons">
+                    <button
+                      class="btn btn-outline-light editBtn"
+                      onClick={(e) => {
+                        allPosts[index].isEdit = true;
+                        setAllPosts([...allPosts]);
+                      }}
+                    >
+                      Edit
+                    </button>
 
-                <button
-                  onClick={(e) => {
-                    deletePostHandler(post._id);
-                  }}
-                >
-                  Delete
-                </button>
+                    <button
+                      class="btn btn-outline-light deleteBtn"
+                      onClick={(e) => {
+                        deletePostHandler(post._id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
               </div>
             )}
           </div>

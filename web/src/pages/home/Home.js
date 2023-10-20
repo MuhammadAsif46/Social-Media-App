@@ -241,7 +241,7 @@ export default function Home({ profileImg, userName, date }) {
                     </div>
                   </div>
                   <div className="post-data">
-                    <div className="my-post">{post.text}</div>
+                    <div className="all-post">{post.text}</div>
                   </div>
                   <br />
                   <div className="post-footer">
