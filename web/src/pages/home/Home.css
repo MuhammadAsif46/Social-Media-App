@@ -142,23 +142,64 @@ div.search-bar{
 
 /* edit post styles */
 
+.edit-form-card{
+  border:  2px solid black;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  
+}
+
+div.edit-card{
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  background-color: #b7e4c7;
+  box-shadow: 0 0 10px #777
+}
+
+div.edit-post{
+  color: #0077b6;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.postEditText{
+  border: 2px solid black;
+  font-size: 15px;
+  width: 20rem;
+  height: 3rem;
+  padding: 0 0.3rem;
+  /* background-color: #2d6a4f;
+  color: #fff; */
+}
+
+div.edit-button{
+  /* border: 1px solid purple; */
+  padding: 0.5rem;
+}
+
 .update-btn{
-  height: 2rem;
+  margin: 0 0.4rem;
+  /* height: 2rem;
   padding: 0.5rem;
   border-radius: 5px;
   background-color: green;
   margin-right: 0.6rem;
   margin-top: 0.5rem;
   border: none;
-  color: white;
+  color: white; */
 }
 
 .cancel-btn{
-  height: 2rem;
+  margin: 0 0.4rem;
+  /* height: 2rem;
   padding: 0.5rem;
   border-radius: 5px;
   background-color: gray;
   margin-right: 0.6rem;
   border: none;
-  color: white;
+  color: white; */
 }

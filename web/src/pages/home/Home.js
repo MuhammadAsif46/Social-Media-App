@@ -196,40 +196,40 @@ export default function Home({ profileImg, userName, date, email }) {
       });
   };
 
-//   const editPost = (post, index) => {
-//     swal
-//       .fire({
-//         title: "Edit Post",
-//         html: `
-//               <textarea id="editText" class="swal2-input text" placeholder="Post Text" required>${post.text}</textarea>
-//             `,
-//         showCancelButton: true,
-//         cancelButtonText: "Cancel",
-//         confirmButtonText: "Update",
-//         showConfirmButton: true,
-//         confirmButtonColor: "#284352",
-//         showCancelButton: true,
-//         cancelButtonColor: "#284352",
-//         showLoaderOnConfirm: true,
-//       })
-//       .then((result) => {
-//         if (result.isConfirmed) {
-//           allPosts[index].isEdit = true;
-//           setAllPosts([...allPosts]);
-//           swal.fire({
-//             icon: "success",
-//             title: "Post Updated",
-//             showConfirmButton: true,
-//           });
-//         } else {
-//           return swal.fire({
-//             icon: 'error',
-//             title: 'Failed to update post',
-//             showConfirmButton: true,
-//           });
-//         }
-//       });
-//   };
+  //   const editPost = (post, index) => {
+  //     swal
+  //       .fire({
+  //         title: "Edit Post",
+  //         html: `
+  //               <textarea id="editText" class="swal2-input text" placeholder="Post Text" required>${post.text}</textarea>
+  //             `,
+  //         showCancelButton: true,
+  //         cancelButtonText: "Cancel",
+  //         confirmButtonText: "Update",
+  //         showConfirmButton: true,
+  //         confirmButtonColor: "#284352",
+  //         showCancelButton: true,
+  //         cancelButtonColor: "#284352",
+  //         showLoaderOnConfirm: true,
+  //       })
+  //       .then((result) => {
+  //         if (result.isConfirmed) {
+  //           allPosts[index].isEdit = true;
+  //           setAllPosts([...allPosts]);
+  //           swal.fire({
+  //             icon: "success",
+  //             title: "Post Updated",
+  //             showConfirmButton: true,
+  //           });
+  //         } else {
+  //           return swal.fire({
+  //             icon: 'error',
+  //             title: 'Failed to update post',
+  //             showConfirmButton: true,
+  //           });
+  //         }
+  //       });
+  //   };
 
   return (
     <div className="home-page">
@@ -302,28 +302,38 @@ export default function Home({ profileImg, userName, date, email }) {
         {allPosts.map((post, index) => (
           <div className="post" key={post._id}>
             {post.isEdit ? (
-              <form onSubmit={editSaveSubmitHandler}>
-                <div className="edit-post">Edit post</div>
-                <br />
-                <textarea
-                  defaultValue={post.text}
-                  type="text"
-                  placeholder="body"
-                  className="postEditText"
-                />
-                <br />
-                <button type="submit" onClick={UpdateAlert} className="update-btn">
-                  Update
-                </button>
-                <button
-                  type="button"
-                  className="cancel-btn"
-                  onClick={() => {
-                    cancelPost(post);
-                  }}
-                >
-                  Cancel
-                </button>
+              <form onSubmit={editSaveSubmitHandler} className="edit-form-card">
+                <div className="edit-card">
+                  <div className="edit-post">Edit post</div>
+                  <br />
+                  <div className="edit-input">
+                    <input
+                      defaultValue={post.text}
+                      type="text"
+                      placeholder="body"
+                      className="postEditText"
+                    />
+                    <br />
+                  </div>
+                  <div className="edit-button">
+                    <button
+                      type="submit"
+                      onClick={UpdateAlert}
+                      className="btn btn-outline-light update-btn"
+                    >
+                      Update
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-light cancel-btn"
+                      onClick={() => {
+                        cancelPost(post);
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
               </form>
             ) : (
               // edit post form
