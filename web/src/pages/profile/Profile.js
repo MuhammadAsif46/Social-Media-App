@@ -136,14 +136,14 @@ export default function Profile({profileImg, userName, date, email}) {
   const editSaveSubmitHandler = async (e) => {
     e.preventDefault();
     const _id = e.target.elements[0].value;
-    const title = e.target.elements[1].value;
-    const text = e.target.elements[2].value;
+    // const title = e.target.elements[1].value;
+    const text = e.target.elements[1].value;
 
     try {
       setIsLoading(true);
 
       const response = await axios.put(`${baseUrl}/api/v1/post/${_id}`, {
-        title: title,
+        // title: title,
         text: text,
       });
 
@@ -151,7 +151,6 @@ export default function Profile({profileImg, userName, date, email}) {
       console.log(response.data);
       setAlert(response?.data?.message);
       setToggleRefresh(!toggleRefresh);
-      // getAllPost();
     } catch (error) {
       // handle error
       console.log(error?.data);

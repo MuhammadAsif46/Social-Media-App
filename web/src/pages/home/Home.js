@@ -92,7 +92,7 @@ export default function Home({ profileImg, userName, date, email }) {
     }
   };
 
-  const deletePostHandler = async (_id) => {
+      const deletePostHandler = async (_id) => {
     try {
       setIsLoading(true);
 
@@ -305,12 +305,12 @@ export default function Home({ profileImg, userName, date, email }) {
               <form onSubmit={editSaveSubmitHandler} className="edit-form-card">
                 <div className="edit-card">
                   <div className="edit-post">Edit post</div>
+                  <input value={post._id} type="text" disabled hidden />
                   <br />
                   <div className="edit-input">
                     <input
                       defaultValue={post.text}
                       type="text"
-                      placeholder="body"
                       className="postEditText"
                     />
                     <br />
