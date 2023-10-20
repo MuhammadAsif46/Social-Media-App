@@ -137,12 +137,12 @@ export default function Home({ profileImg, userName, date, email }) {
     }
   };
 
+    //   One Click Two function call 
   const deleteMainFunction = (_id) => {
     deletePost(_id);
   };
 
     // Sweet Alert Function:
-
     const deletePost = (_id) => {
         swal.fire({
           title: "Enter Password",

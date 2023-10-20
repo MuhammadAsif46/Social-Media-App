@@ -8,6 +8,7 @@ import { PiArticle } from 'react-icons/pi';
 import { AiOutlineLike } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import { PiShareFat } from "react-icons/pi";
+import swal from "sweetalert2";
 
 import { GlobalContext } from "../../context/Context";
 import { useParams } from "react-router-dom";
@@ -84,6 +85,11 @@ export default function Profile({profileImg, userName, date, email}) {
     // }
   }, [toggleRefresh]);
 
+  // Sweet Alert function:
+  const publishPost = () => {
+    swal.fire("Success!", "Your Post have been Publish Thank you!", "success");
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -98,6 +104,7 @@ export default function Profile({profileImg, userName, date, email}) {
       console.log(response.data);
       setAlert(response.data.message);
       setToggleRefresh(!toggleRefresh);
+      publishPost();
       e.target.reset();
     } catch (error) {
       // handle error
@@ -111,7 +118,7 @@ export default function Profile({profileImg, userName, date, email}) {
       setIsLoading(true);
 
       const response = await axios.delete(`${baseUrl}/api/v1/post/${_id}`, {
-        title: postTitleInputRef.current.value,
+        // title: postTitleInputRef.current.value,
         text: postTextInputRef.current.value,
       });
 
@@ -119,7 +126,6 @@ export default function Profile({profileImg, userName, date, email}) {
       console.log(response.data);
       setAlert(response.data.message);
       setToggleRefresh(!toggleRefresh);
-      // getAllPost();
     } catch (error) {
       // handle error
       console.log(error?.data);
@@ -152,6 +158,44 @@ export default function Profile({profileImg, userName, date, email}) {
       setIsLoading(false);
     }
   };
+
+   //   One Click Two function call 
+   const deleteMainFunction = (_id) => {
+    deletePost(_id);
+  };
+
+  // Sweet Alert Function:
+  const deletePost = (_id) => {
+    swal.fire({
+      title: "Enter Password",
+      input: "password",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: true,
+      cancelButtonColor: "#3a3659",
+      confirmButtonText: "Delete",
+      confirmButtonColor: "#3a3659",
+      showLoaderOnConfirm: true,
+      preConfirm: (password) => {
+        if (password === "1122") {
+          deletePostHandler(_id);
+          swal.fire({
+            icon: "success",
+            title: "Post Deleted",
+            showConfirmButton: true,
+          });
+        } else {
+          return swal.fire({
+            icon: "error",
+            title: "Invalid Password",
+            text: "Please enter correct password",
+            showConfirmButton: true,
+          });
+        }
+      },
+    });
+};
 
   return (
     <div className="profile-page">
@@ -292,7 +336,7 @@ export default function Profile({profileImg, userName, date, email}) {
                     <button
                       class="btn btn-outline-light deleteBtn"
                       onClick={(e) => {
-                        deletePostHandler(post._id);
+                        deleteMainFunction(post._id);
                       }}
                     >
                       Delete
