@@ -9,9 +9,7 @@ div.post{
     padding: 0.8rem;
     margin: 1rem;
 } */
-body{
-    background-color: #fff;
-  }
+
 
 div.home-page{
     background-color: #52b788;
@@ -21,7 +19,6 @@ div.home-page{
 .form-card{
     display: flex;
     justify-content: center;
-    /* border: 1px solid black; */
   }
   
   .post-main{

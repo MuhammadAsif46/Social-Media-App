@@ -9,7 +9,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import { PiShareFat } from "react-icons/pi";
 
-export default function Home({ profileImg, userName, date }) {
+export default function Home({ profileImg, userName, date, email }) {
   const postTextInputRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -75,7 +75,6 @@ export default function Home({ profileImg, userName, date }) {
 
       setIsLoading(false);
       console.log(response.data);
-      //   getAllPost();
       setAlert(response.data.message);
       setToggleRefresh(!toggleRefresh);
       e.target.reset();
@@ -99,7 +98,6 @@ export default function Home({ profileImg, userName, date }) {
       console.log(response.data);
       setAlert(response.data.message);
       setToggleRefresh(!toggleRefresh);
-      // getAllPost();
     } catch (error) {
       // handle error
       console.log(error?.data);
@@ -110,14 +108,14 @@ export default function Home({ profileImg, userName, date }) {
   const editSaveSubmitHandler = async (e) => {
     e.preventDefault();
     const _id = e.target.elements[0].value;
-    const title = e.target.elements[1].value;
+    // const title = e.target.elements[1].value;
     const text = e.target.elements[2].value;
 
     try {
       setIsLoading(true);
 
       const response = await axios.put(`${baseUrl}/api/v1/post/${_id}`, {
-        title: title,
+        // title: title,
         text: text,
       });
 
@@ -125,13 +123,20 @@ export default function Home({ profileImg, userName, date }) {
       console.log(response.data);
       setAlert(response?.data?.message);
       setToggleRefresh(!toggleRefresh);
-      // getAllPost();
     } catch (error) {
       // handle error
       console.log(error?.data);
       setIsLoading(false);
     }
   };
+
+  const deleteMainFunction = (_id) => {
+    deletePost(_id);
+  };
+
+    // Sweet Alert Function:
+
+    
 
   return (
     <div className="home-page">
@@ -151,6 +156,7 @@ export default function Home({ profileImg, userName, date }) {
               <div>
                 <div className="post-name">{userName}</div>
                 <div className="date">{date}</div>
+                <div className="date">{email}</div>
               </div>
             </div>
             <textarea
@@ -201,12 +207,6 @@ export default function Home({ profileImg, userName, date }) {
               <form onSubmit={editSaveSubmitHandler}>
                 <input value={post._id} type="text" disabled hidden />
                 <br />
-                <input
-                  defaultValue={post.title}
-                  type="text"
-                  placeholder="title"
-                />
-                <br />
                 <textarea
                   defaultValue={post.text}
                   type="text"
@@ -238,6 +238,7 @@ export default function Home({ profileImg, userName, date }) {
                     <div>
                       <div className="post-name">{userName}</div>
                       <div className="date">{date}</div>
+                      <div className="date">{email}</div>
                     </div>
                   </div>
                   <div className="post-data">
@@ -279,7 +280,7 @@ export default function Home({ profileImg, userName, date }) {
                     <button
                       class="btn btn-outline-light deleteBtn"
                       onClick={(e) => {
-                        deletePostHandler(post._id);
+                        deleteMainFunction(post._id);
                       }}
                     >
                       Delete

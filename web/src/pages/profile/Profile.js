@@ -13,7 +13,7 @@ import { GlobalContext } from "../../context/Context";
 import { useParams } from "react-router-dom";
 
 
-export default function Profile({profileImg, userName, date}) {
+export default function Profile({profileImg, userName, date, email}) {
   const { state, dispatch } = useContext(GlobalContext);
 
   const postTitleInputRef = useRef(null);
@@ -91,13 +91,11 @@ export default function Profile({profileImg, userName, date}) {
       setIsLoading(true);
 
       const response = await axios.post(`${baseUrl}/api/v1/post`, {
-        title: postTitleInputRef.current.value,
         text: postTextInputRef.current.value,
       });
 
       setIsLoading(false);
       console.log(response.data);
-      //   getAllPost();
       setAlert(response.data.message);
       setToggleRefresh(!toggleRefresh);
       e.target.reset();
@@ -165,6 +163,7 @@ export default function Profile({profileImg, userName, date}) {
             <div>
               <div className="post-name">{userName}</div>
               <div className="date">{date}</div>
+              <div className="date">{email}</div>
             </div>
           </div>
           <textarea
@@ -220,12 +219,6 @@ export default function Profile({profileImg, userName, date}) {
               <form onSubmit={editSaveSubmitHandler}>
                 <input value={post._id} type="text" disabled hidden />
                 <br />
-                <input
-                  defaultValue={post.title}
-                  type="text"
-                  placeholder="title"
-                />
-                <br />
                 <textarea
                   defaultValue={post.text}
                   type="text"
@@ -257,6 +250,7 @@ export default function Profile({profileImg, userName, date}) {
                     <div>
                       <div className="post-name">{userName}</div>
                       <div className="date">{date}</div>
+                      <div className="date">{email}</div>
                     </div>
                   </div>
                   <div className="post-data">

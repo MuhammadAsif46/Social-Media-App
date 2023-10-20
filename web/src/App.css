@@ -4,6 +4,9 @@ a{
     list-style: none;
 }
 
+body{
+    background-color: #52b788;
+}
 /* home page nav bar  */
 
 .nav-bar{

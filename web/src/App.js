@@ -138,13 +138,30 @@ const App = () => {
           </nav>
 
           <Routes>
-            <Route path="/" element={<Home 
-            profileImg={profileImg2}
-            userName="Farhan Saeed"
-            date="21-Jun-2023 4:50 am"/>} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  profileImg={profileImg2}
+                  userName="Farhan Saeed"
+                  date="21-Jun-2023 4:50 am"
+                  email={state.user.email}
+                />
+              }
+            />
             <Route path="about" element={<About />} />
             <Route path="chat" element={<Chat />} />
-            <Route path="profile/:userId" element={<Profile />} />
+            <Route
+              path="profile/:userId"
+              element={
+                <Profile
+                  profileImg={profileImg2}
+                  userName="Farhan Saeed"
+                  date="21-Jun-2023 4:50 am"
+                  email={state.user.email}
+                />
+              }
+            />
 
             <Route path="*" element={<Navigate to="/" replace={true} />} />
           </Routes>
@@ -213,6 +230,7 @@ const App = () => {
                   profileImg={profileImg1}
                   userName="Muhammad Asif"
                   date="12-Jan-2022 3:50 pm"
+                  email={state.user.email}
                 />
               }
             />

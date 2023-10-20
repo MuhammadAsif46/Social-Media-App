@@ -65,7 +65,8 @@ router.get('/search', async (req, res, next) => {
 router.post("/post", async (req, res, next) => {
   console.log("this is signup!", new Date());
 
-  if (!req.body.title || !req.body.text) {
+
+  if (!req.body.text) { //!req.body.title || 
     res.status(403);
     res.send(`required parameters missing, 
         example request body:
@@ -79,7 +80,7 @@ router.post("/post", async (req, res, next) => {
   try {
     const insertResponse = await col.insertOne({
         // _id: "7864972364724b4h2b4jhgh42",
-        title: req.body.title,
+        // title: req.body.title,
         text: req.body.text,
         authorEmail: req.body.decoded.email,
         authorId: new ObjectId(req.body.decoded._id),
@@ -111,8 +112,6 @@ router.get("/feed", async (req, res, next) => {
     res.status(500).send("server error, please try later..");
   }
 });
-
-// GET     /api/v1/posts
 
 // post?_id=123455
 router.get("/posts", async (req, res, next) => {
