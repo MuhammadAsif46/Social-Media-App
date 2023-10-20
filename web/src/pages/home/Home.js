@@ -175,6 +175,27 @@ export default function Home({ profileImg, userName, date, email }) {
         });
     };
 
+    const UpdateAlert = () => {
+        swal.fire("Success!", "Your Post have been Updated Thank you!", "success");
+    };
+
+    const cancelPost = (post) => {
+        // console.log("check cancel post");
+        swal
+          .fire({
+            icon: "warning",
+            title: "Warning...",
+            text: "Are You Sure!",
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              post.isEdit = false;
+              setAllPosts([...allPosts]);
+              swal.fire("success!", "Your file has been saved.", "success");
+            }
+          });
+    };
+
   return (
     <div className="home-page">
       <div className="search-bar">
@@ -250,12 +271,11 @@ export default function Home({ profileImg, userName, date, email }) {
                   placeholder="body"
                 />
                 <br />
-                <button type="submit">Save</button>
+                <button type="submit" onClick={UpdateAlert}>Update</button>
                 <button
                   type="button"
                   onClick={() => {
-                    post.isEdit = false;
-                    setAllPosts([...allPosts]);
+                    cancelPost(post);
                   }}
                 >
                   Cancel
