@@ -63,7 +63,7 @@ export default function Home({ profileImg, userName, date, email }) {
     // }
   }, [toggleRefresh]);
 
-// Sweet Alert function:
+  // Sweet Alert function:
   const publishPost = () => {
     swal.fire("Success!", "Your Post have been Publish Thank you!", "success");
   };
@@ -116,7 +116,7 @@ export default function Home({ profileImg, userName, date, email }) {
     e.preventDefault();
     const _id = e.target.elements[0].value;
     // const title = e.target.elements[1].value;
-    const text = e.target.elements[2].value;
+    const text = e.target.elements[1].value;
 
     try {
       setIsLoading(true);
@@ -137,70 +137,110 @@ export default function Home({ profileImg, userName, date, email }) {
     }
   };
 
-    //   One Click Two function call 
+  //   One Click Two function call
   const deleteMainFunction = (_id) => {
     deletePost(_id);
   };
 
-    // Sweet Alert Function:
-    const deletePost = (_id) => {
-        swal.fire({
-          title: "Enter Password",
-          input: "password",
-          inputAttributes: {
-            autocapitalize: "off",
-          },
-          showCancelButton: true,
-          cancelButtonColor: "#3a3659",
-          confirmButtonText: "Delete",
-          confirmButtonColor: "#3a3659",
-          showLoaderOnConfirm: true,
-          preConfirm: (password) => {
-            if (password === "1122") {
-              deletePostHandler(_id);
-              swal.fire({
-                icon: "success",
-                title: "Post Deleted",
-                showConfirmButton: true,
-              });
-            } else {
-              return swal.fire({
-                icon: "error",
-                title: "Invalid Password",
-                text: "Please enter correct password",
-                showConfirmButton: true,
-              });
-            }
-          },
-        });
-    };
-
-    const UpdateAlert = () => {
-        swal.fire("Success!", "Your Post have been Updated Thank you!", "success");
-    };
-
-    const cancelPost = (post) => {
-        // console.log("check cancel post");
-        swal
-          .fire({
-            icon: "warning",
-            title: "Warning...",
-            text: "Are You Sure!",
-          })
-          .then((result) => {
-            if (result.isConfirmed) {
-              post.isEdit = false;
-              setAllPosts([...allPosts]);
-              swal.fire("success!", "Your file has been saved.", "success");
-            }
+  // Sweet Alert Function:
+  const deletePost = (_id) => {
+    swal.fire({
+      title: "Enter Password",
+      input: "password",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: true,
+      cancelButtonColor: "#3a3659",
+      confirmButtonText: "Delete",
+      confirmButtonColor: "#3a3659",
+      showLoaderOnConfirm: true,
+      preConfirm: (password) => {
+        if (password === "1122") {
+          deletePostHandler(_id);
+          swal.fire({
+            icon: "success",
+            title: "Post Deleted",
+            showConfirmButton: true,
           });
-    };
+        } else {
+          return swal.fire({
+            icon: "error",
+            title: "Invalid Password",
+            text: "Please enter correct password",
+            showConfirmButton: true,
+          });
+        }
+      },
+    });
+  };
+
+  const UpdateAlert = () => {
+    swal.fire("Success!", "Your Post have been Updated Thank you!", "success");
+  };
+
+  const cancelPost = (post) => {
+    // console.log("check cancel post");
+    swal
+      .fire({
+        icon: "warning",
+        title: "Warning...",
+        text: "Are You Sure!",
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          post.isEdit = false;
+          setAllPosts([...allPosts]);
+          swal.fire("success!", "Your file has been saved.", "success");
+        }
+      });
+  };
+
+  const editPost = (post, index) => {
+    swal
+      .fire({
+        title: "Edit Post",
+        html: `
+              <textarea id="editText" class="swal2-input text" placeholder="Post Text" required>${post.text}</textarea>
+            `,
+        showCancelButton: true,
+        cancelButtonText: "Cancel",
+        confirmButtonText: "Update",
+        showConfirmButton: true,
+        confirmButtonColor: "#284352",
+        showCancelButton: true,
+        cancelButtonColor: "#284352",
+        showLoaderOnConfirm: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          allPosts[index].isEdit = true;
+          setAllPosts([...allPosts]);
+          swal.fire({
+            icon: "success",
+            title: "Post Updated",
+            showConfirmButton: true,
+          });
+        } else {
+          return swal.fire({
+            icon: 'error',
+            title: 'Failed to update post',
+            showConfirmButton: true,
+          });
+        }
+      });
+  };
 
   return (
     <div className="home-page">
       <div className="search-bar">
         <form onSubmit={searchHandler} style={{ textAlign: "left" }}>
-          <input type="search" className="searching" placeholder="Search..." ref={searchInputRef} />
+          <input
+            type="search"
+            className="searching"
+            placeholder="Search..."
+            ref={searchInputRef}
+          />
           <button type="submit" hidden></button>
         </form>
       </div>
@@ -263,15 +303,15 @@ export default function Home({ profileImg, userName, date, email }) {
           <div className="post" key={post._id}>
             {post.isEdit ? (
               <form onSubmit={editSaveSubmitHandler}>
-                <input value={post._id} type="text" disabled hidden />
-                <br />
                 <textarea
                   defaultValue={post.text}
                   type="text"
                   placeholder="body"
                 />
                 <br />
-                <button type="submit" onClick={UpdateAlert}>Update</button>
+                <button type="submit" onClick={UpdateAlert}>
+                  Update
+                </button>
                 <button
                   type="button"
                   onClick={() => {
@@ -327,8 +367,7 @@ export default function Home({ profileImg, userName, date, email }) {
                     <button
                       class="btn btn-outline-light editBtn"
                       onClick={(e) => {
-                        allPosts[index].isEdit = true;
-                        setAllPosts([...allPosts]);
+                        editPost(post, index);
                       }}
                     >
                       Edit

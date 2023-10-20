@@ -197,7 +197,7 @@ router.get("/post/:postId", async (req, res, next) => {
         return;
     }
 
-    if (!req.body.text ) { //&& !req.body.title
+    if (!req.body.text ) { // && !req.body.title
         res.status(403).send(`required parameter missing, atleast one key is required.
             example put body: 
             PUT     /api/v1/post/:postId
