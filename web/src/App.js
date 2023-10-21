@@ -143,7 +143,7 @@ const App = () => {
               element={
                 <Home
                   profileImg={profileImg2}
-                  userName="Farhan Saeed"
+                  userName={`${state.user.firstName} ${state.user.lastName}`}
                   // email={state.user.email}
                 />
               }
@@ -155,7 +155,7 @@ const App = () => {
               element={
                 <Profile
                   profileImg={profileImg2}
-                  userName="Farhan Ahmed"
+                  userName={`${state.user.firstName} ${state.user.lastName}`}
                 />
               }
             />
@@ -225,7 +225,7 @@ const App = () => {
               element={
                 <Home
                   profileImg={profileImg1}
-                  userName="Muhammad Asif"
+                  userName={`${state.user.firstName} ${state.user.lastName}`}
                   // email={state.user.email}
                 />
               }
@@ -237,7 +237,7 @@ const App = () => {
               element={
                 <Profile
                   profileImg={profileImg1}
-                  userName="Muhammad Asif"
+                  userName={`${state.user.firstName} ${state.user.lastName}`}
                 />
               }
             />
@@ -264,7 +264,16 @@ const App = () => {
           <Routes>
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
-            <Route path="profile/:userId" element={<Profile />} />
+            <Route
+              path="profile/:userId"
+              element={
+                <Profile
+                  profileImg={profileImg2}
+                  // userName={`${state.user.firstName} ${state.user.lastName}`}
+                  userName="farhan ahmed"
+                />
+              }
+            />
 
             <Route path="*" element={<Navigate to="/login" replace={true} />} />
           </Routes>
@@ -274,7 +283,11 @@ const App = () => {
       {/* unsplash routes */}
       {state.isLogin === null ? (
         <div className="screen">
-          <img className="splashScreen" src={splashScreen} alt="splash screen" />
+          <img
+            className="splashScreen"
+            src={splashScreen}
+            alt="splash screen"
+          />
         </div>
       ) : null}
     </div>

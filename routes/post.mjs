@@ -63,8 +63,6 @@ router.get('/search', async (req, res, next) => {
 
 // POST    /api/v1/post
 router.post("/post", async (req, res, next) => {
-  console.log("this is signup!", new Date());
-
 
   if (!req.body.text) { //!req.body.title || 
     res.status(403);

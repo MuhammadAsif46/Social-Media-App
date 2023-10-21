@@ -1,5 +1,4 @@
 import express from "express";
-import { nanoid } from "nanoid";
 import { client } from "../mongodb.mjs";
 import { ObjectId } from "mongodb";
 import { openai as openaiClient } from "../mongodb.mjs";

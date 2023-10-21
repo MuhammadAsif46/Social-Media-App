@@ -58,11 +58,14 @@ export default function Home({ profileImg, userName}) {
 
   useEffect(() => {
     getAllPost();
+    setTimeout(()=>{
+      setAlert("");
 
+    },2000)
     // return ()=>{
     //     // cleanup function
     // }
-  }, [toggleRefresh]);
+  }, [toggleRefresh, alert]);
 
   // Sweet Alert function:
   const publishPost = () => {

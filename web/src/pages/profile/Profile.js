@@ -81,10 +81,14 @@ export default function Profile({profileImg, userName, date, email}) {
   useEffect(() => {
     getAllPost();
     getProfile();
+    setTimeout(()=>{
+      setAlert("");
+
+    },2000)
     // return ()=>{
     //     // cleanup function
     // }
-  }, [toggleRefresh]);
+  }, [toggleRefresh, alert]);
 
   // Sweet Alert function:
   const publishPost = () => {
@@ -380,7 +384,7 @@ export default function Profile({profileImg, userName, date, email}) {
           </div>
         ))}
 
-        {allPosts.length === 0 && <div>No Data</div>}
+        {allPosts.length === 0 && <div style={{textAlign: "center"}}>No Data</div>}
       </div>
     </div>
   );
