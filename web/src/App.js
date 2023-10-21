@@ -144,8 +144,7 @@ const App = () => {
                 <Home
                   profileImg={profileImg2}
                   userName="Farhan Saeed"
-                  date="21-Jun-2023 4:50 am"
-                  email={state.user.email}
+                  // email={state.user.email}
                 />
               }
             />
@@ -156,9 +155,7 @@ const App = () => {
               element={
                 <Profile
                   profileImg={profileImg2}
-                  userName="Farhan Saeed"
-                  date="21-Jun-2023 4:50 am"
-                  email={state.user.email}
+                  userName="Farhan Ahmed"
                 />
               }
             />
@@ -169,7 +166,7 @@ const App = () => {
       ) : null}
 
       {/* user routes */}
-      {state.isLogin === null && state.role === "user" ? (
+      {state.isLogin === true && state.role === "user" ? (
         <>
           <nav className="home-page-header">
             <div className="home-first-child">
@@ -229,8 +226,7 @@ const App = () => {
                 <Home
                   profileImg={profileImg1}
                   userName="Muhammad Asif"
-                  date="12-Jan-2022 3:50 pm"
-                  email={state.user.email}
+                  // email={state.user.email}
                 />
               }
             />
@@ -242,7 +238,6 @@ const App = () => {
                 <Profile
                   profileImg={profileImg1}
                   userName="Muhammad Asif"
-                  date="12-Jan-2022 3:50 pm"
                 />
               }
             />
@@ -277,7 +272,7 @@ const App = () => {
       ) : null}
 
       {/* unsplash routes */}
-      {state.isLogin === true ? (
+      {state.isLogin === null ? (
         <div className="screen">
           <img className="splashScreen" src={splashScreen} alt="splash screen" />
         </div>

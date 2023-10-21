@@ -100,13 +100,15 @@ div.post-data{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 23rem;
+    min-height: 15rem;
+    max-height: 100%;
     margin-top: 1rem;
 }
 
 div.all-post{ 
     color: #fff;
-    /* font-size: 2rem; */
+    font-size: 1.5rem;
+    padding: 1rem;
 }
 
 

@@ -9,8 +9,9 @@ import { AiOutlineLike } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import { PiShareFat } from "react-icons/pi";
 import swal from "sweetalert2";
+import moment from 'moment';
 
-export default function Home({ profileImg, userName, date, email }) {
+export default function Home({ profileImg, userName}) {
   const postTextInputRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -253,8 +254,7 @@ export default function Home({ profileImg, userName, date, email }) {
               <img src={profileImg} width={65} height={65} alt="my-image" />
               <div>
                 <div className="post-name">{userName}</div>
-                <div className="date">{date}</div>
-                <div className="date">{email}</div>
+                <div className="date">{moment().format('D MMM YYYY, h:mm:ss a')}</div>
               </div>
             </div>
             <textarea
@@ -348,8 +348,7 @@ export default function Home({ profileImg, userName, date, email }) {
                     />
                     <div>
                       <div className="post-name">{userName}</div>
-                      <div className="date">{date}</div>
-                      <div className="date">{email}</div>
+                      <div className="date">{moment().fromNow()}</div>
                     </div>
                   </div>
                   <div className="post-data">

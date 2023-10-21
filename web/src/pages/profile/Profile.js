@@ -9,6 +9,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import { PiShareFat } from "react-icons/pi";
 import swal from "sweetalert2";
+import moment from "moment";
 
 import { GlobalContext } from "../../context/Context";
 import { useParams } from "react-router-dom";
@@ -17,7 +18,7 @@ import { useParams } from "react-router-dom";
 export default function Profile({profileImg, userName, date, email}) {
   const { state, dispatch } = useContext(GlobalContext);
 
-  const postTitleInputRef = useRef(null);
+  // const postTitleInputRef = useRef(null);
   const postTextInputRef = useRef(null);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -226,8 +227,7 @@ export default function Profile({profileImg, userName, date, email}) {
             <img src={profileImg} width={65} height={65} alt="my-image" />
             <div>
               <div className="post-name">{userName}</div>
-              <div className="date">{date}</div>
-              <div className="date">{email}</div>
+              <div className="date">{moment().format('D MMM YYYY, h:mm:ss a')}</div>
             </div>
           </div>
           <textarea
@@ -280,25 +280,39 @@ export default function Profile({profileImg, userName, date, email}) {
         {allPosts.map((post, index) => (
           <div className="post" key={post._id}>
             {post.isEdit ? (
-              <form onSubmit={editSaveSubmitHandler}>
+              <form onSubmit={editSaveSubmitHandler} className="edit-form-card">
+              <div className="edit-card">
+                <div className="edit-post">Edit post</div>
                 <input value={post._id} type="text" disabled hidden />
                 <br />
-                <textarea
-                  defaultValue={post.text}
-                  type="text"
-                  placeholder="body"
-                />
-                <br />
-                <button type="submit" onClick={UpdateAlert}>Update</button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    cancelPost(post);
-                  }}
-                >
-                  Cancel
-                </button>
-              </form>
+                <div className="edit-input">
+                  <input
+                    defaultValue={post.text}
+                    type="text"
+                    className="postEditText"
+                  />
+                  <br />
+                </div>
+                <div className="edit-button">
+                  <button
+                    type="submit"
+                    onClick={UpdateAlert}
+                    className="btn btn-outline-light update-btn"
+                  >
+                    Update
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-light cancel-btn"
+                    onClick={() => {
+                      cancelPost(post);
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </form>
             ) : (
               // edit post form
               <div className="form-card">
@@ -312,8 +326,7 @@ export default function Profile({profileImg, userName, date, email}) {
                     />
                     <div>
                       <div className="post-name">{userName}</div>
-                      <div className="date">{date}</div>
-                      <div className="date">{email}</div>
+                      <div className="date">{moment().fromNow()}</div>
                     </div>
                   </div>
                   <div className="post-data">
