@@ -36,3 +36,14 @@ div.login-person-name{
     font-size: 1.5rem;
 }
 
+/* splash screen styles */
+
+div.screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.splashScreen{
+    height: 100vh; 
+}

@@ -169,7 +169,7 @@ const App = () => {
       ) : null}
 
       {/* user routes */}
-      {state.isLogin === true && state.role === "user" ? (
+      {state.isLogin === null && state.role === "user" ? (
         <>
           <nav className="home-page-header">
             <div className="home-first-child">
@@ -277,9 +277,9 @@ const App = () => {
       ) : null}
 
       {/* unsplash routes */}
-      {state.isLogin === null ? (
-        <div>
-          <img src={splashScreen} alt="splash screen" />
+      {state.isLogin === true ? (
+        <div className="screen">
+          <img className="splashScreen" src={splashScreen} alt="splash screen" />
         </div>
       ) : null}
     </div>
