@@ -19,7 +19,7 @@ const Login = () => {
     setTimeout(() => {
       setAlertMessage("");
       setErrorMessage("");
-    }, 5000);
+    }, 2000);
   }, [alertMessage, errorMessage]);
 
   const loginSubmitHandler = async (e) => {
@@ -51,11 +51,6 @@ const Login = () => {
       setErrorMessage(e.response?.data?.message);
     }
   };
-
-  const hello = () => {
-    <Link to={`/signup`}> hello</Link>
-    console.log("hello");
-  }
 
   return (
     <div className="container-login">
@@ -94,10 +89,13 @@ const Login = () => {
           <br />
           <p className="question">Do not have an account? </p>
           <hr />
-          <div>
-          <Link class="btn btn-success newBtn" to={`/signup`}>Create New Account</Link></div>
+
           <div className="alertMessage">{alertMessage}</div>
           <div className="errorMessage">{errorMessage}</div>
+
+          <div>
+            <Link class="btn btn-success newBtn" to={`/signup`}>Create New Account</Link>
+          </div>
         </form>
       </div>
     </div>

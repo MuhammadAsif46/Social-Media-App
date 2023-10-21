@@ -30,7 +30,7 @@ router.post("/login", async (req, res, next) => {
     if (!result) { //user not found
 
       res.status(401).send({
-        message: "email or password incorrect",
+        message: "Email or password incorrect",
       });
       return;
     
@@ -71,7 +71,7 @@ router.post("/login", async (req, res, next) => {
 
       } else {
         res.status(401).send({
-          message: "email or password incorrect",
+          message: "Email or password incorrect",
         });
         return;
       }
