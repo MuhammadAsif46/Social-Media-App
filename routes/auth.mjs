@@ -131,11 +131,11 @@ router.post("/signup", async (req, res, next) => {
 
       console.log("insertResponse : ", insertResponse);
 
-      res.send({ message: "signup succssful" });
+      res.send({ message: "Signup Succssful" });
 
     } else { // user already exists
         res.status(403).send({ 
-            message: "user already exist with this email" 
+            message: "User already exist with this email" 
         });
     }
   } catch (e) {

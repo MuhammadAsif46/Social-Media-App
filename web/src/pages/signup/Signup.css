@@ -1,9 +1,12 @@
 .errorMessage{
     color: red;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    text-align: center;
 }
 .alertMessage{
-    font-size: 0.9rem;
+    font-size: 1rem;
+    text-align: center;
+    color: blue;
 }
 .hidden{
     display: none;

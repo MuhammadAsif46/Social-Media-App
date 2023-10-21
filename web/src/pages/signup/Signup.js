@@ -23,7 +23,7 @@ const Signup = () => {
     setTimeout(() => {
       setAlertMessage("");
       setErrorMessage("");
-    }, 5000);
+    }, 4000);
   }, [alertMessage, errorMessage]);
 
   const SignupSubmitHandler = async (e) => {
@@ -122,12 +122,12 @@ const Signup = () => {
             placeholder="Repeat Password"
             required
           />
-          <p
+          <div
             className={`errorMessage ${passwordErrorClass}`}
             id="passwordError"
           >
             Password Does Not Match !
-          </p>
+          </div>
 
           <br />
 
@@ -135,11 +135,14 @@ const Signup = () => {
           <br />
           <p style={{textAlign: "center", marginTop: "1rem"}}>Already have an account? </p>
           <hr />
-          <div>
-          <Link class="btn btn-success newBtn" to={`/login`}> Login </Link></div>
 
           <div className="alertMessage">{alertMessage}</div>
           <div className="errorMessage">{errorMessage}</div>
+
+          <div>
+            <Link class="btn btn-success newBtn" to={`/login`}> Login </Link>
+          </div>
+
         </form>
       </div>
     </div>
