@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import "./Home.css";
+
 import { baseUrl } from "../../core";
+
 import { GoFileMedia } from "react-icons/go";
 import { BsCalendarEvent } from "react-icons/bs";
 import { PiArticle } from "react-icons/pi";
@@ -9,9 +11,9 @@ import { AiOutlineLike } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import { PiShareFat } from "react-icons/pi";
 import swal from "sweetalert2";
-import moment from 'moment';
+import moment from "moment";
 
-export default function Home({ profileImg, userName}) {
+export default function Home({ profileImg, userName }) {
   const postTextInputRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -58,10 +60,9 @@ export default function Home({ profileImg, userName}) {
 
   useEffect(() => {
     getAllPost();
-    setTimeout(()=>{
+    setTimeout(() => {
       setAlert("");
-
-    },2000)
+    }, 2000);
     // return ()=>{
     //     // cleanup function
     // }
@@ -96,7 +97,7 @@ export default function Home({ profileImg, userName}) {
     }
   };
 
-      const deletePostHandler = async (_id) => {
+  const deletePostHandler = async (_id) => {
     try {
       setIsLoading(true);
 
@@ -200,40 +201,21 @@ export default function Home({ profileImg, userName}) {
       });
   };
 
-  //   const editPost = (post, index) => {
-  //     swal
-  //       .fire({
-  //         title: "Edit Post",
-  //         html: `
-  //               <textarea id="editText" class="swal2-input text" placeholder="Post Text" required>${post.text}</textarea>
-  //             `,
-  //         showCancelButton: true,
-  //         cancelButtonText: "Cancel",
-  //         confirmButtonText: "Update",
-  //         showConfirmButton: true,
-  //         confirmButtonColor: "#284352",
-  //         showCancelButton: true,
-  //         cancelButtonColor: "#284352",
-  //         showLoaderOnConfirm: true,
-  //       })
-  //       .then((result) => {
-  //         if (result.isConfirmed) {
-  //           allPosts[index].isEdit = true;
-  //           setAllPosts([...allPosts]);
-  //           swal.fire({
-  //             icon: "success",
-  //             title: "Post Updated",
-  //             showConfirmButton: true,
-  //           });
-  //         } else {
-  //           return swal.fire({
-  //             icon: 'error',
-  //             title: 'Failed to update post',
-  //             showConfirmButton: true,
-  //           });
-  //         }
-  //       });
-  //   };
+  const doLikeHandler = async (_id) => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post(`${baseUrl}/api/v1/post/${_id}/dolike`);
+
+      setIsLoading(false);
+      console.log(response.data);
+      setAlert(response.data.message);
+      // setToggleRefresh(!toggleRefresh);
+    } catch (error) {
+      // handle error
+      console.log(error?.data);
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="home-page">
@@ -257,7 +239,9 @@ export default function Home({ profileImg, userName}) {
               <img src={profileImg} width={65} height={65} alt="my-image" />
               <div>
                 <div className="post-name">{userName}</div>
-                <div className="date">{moment().format('D MMM YYYY, h:mm:ss a')}</div>
+                <div className="date">
+                  {moment().format("D MMM YYYY, h:mm:ss a")}
+                </div>
               </div>
             </div>
             <textarea
@@ -349,22 +333,44 @@ export default function Home({ profileImg, userName}) {
                       height={65}
                       alt="my-image"
                     />
+
                     <div>
-                      <div className="post-name">{userName}</div>
+                      <div className="post-name">{post.authorObject.firstName} {post.authorObject.lastName}</div>
+                      {/* <div className="date">{post.authorObject.firstName} {post.authorObject.lastName} - {post.authorObject.email}</div> */}
                       <div className="date">{moment().fromNow()}</div>
+                      
                     </div>
                   </div>
+
                   <div className="post-data">
                     <div className="all-post">{post.text}</div>
                   </div>
+
                   <br />
+
+                  <div className="likeBtn">
+                    <AiOutlineLike
+                      style={{ color: "#495057", marginRight: "5px" }}
+                    />
+                    {post?.likes?.length}
+                  </div>
+
+                  <hr />
+
                   <div className="post-footer">
                     <div className="btn">
-                      <AiOutlineLike
-                        style={{ color: "#495057", marginRight: "5px" }}
-                      />
-                      Like
+                      <button style={{border:"none"}}
+                        onClick={(e) => {
+                          doLikeHandler(post._id);
+                        }}
+                      >
+                        <AiOutlineLike
+                          style={{ color: "#495057", marginRight: "5px", }}
+                        />
+                        Like
+                      </button>
                     </div>
+
                     <div className="btn">
                       <BiCommentDetail
                         style={{ color: "#495057", marginRight: "5px" }}

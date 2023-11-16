@@ -10,6 +10,10 @@ div.post{
     margin: 1rem;
 } */
 
+hr{
+  color: black;
+  margin-top: 0;
+}
 
 div.home-page{
     background-color: #52b788;
@@ -109,6 +113,13 @@ div.all-post{
     color: #fff;
     font-size: 1.5rem;
     padding: 1rem;
+}
+
+.likeBtn{
+  color: #000;
+}
+.likeBtn:hover{
+  cursor: pointer;;
 }
 
 

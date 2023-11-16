@@ -90,8 +90,8 @@ const Login = () => {
           <p className="question">Do not have an account? </p>
           <hr />
 
-          <div className="alertMessage">{alertMessage}</div>
-          <div className="errorMessage">{errorMessage}</div>
+          {/* <div className="alertMessage">{alertMessage}</div>
+          <div className="errorMessage">{errorMessage}</div> */}
 
           <div>
             <Link class="btn btn-success newBtn" to={`/signup`}>Create New Account</Link>

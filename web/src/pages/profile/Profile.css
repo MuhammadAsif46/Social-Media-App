@@ -13,3 +13,17 @@ div.my-post{
     color: #fff;
     font-size: 2rem;
 }
+
+hr{
+    color: black;
+    margin-top: 0;
+}
+
+.likeBtn{
+    color: #000;
+}
+  
+.likeBtn:hover{
+    cursor: pointer;;
+}
+  

@@ -95,7 +95,7 @@ const App = () => {
                   <Link
                     class="btn btn-outline-primary home-page-navBar"
                     to={`/profile/${state.user._id}`}
-                  >
+                  > 
                     {" "}
                     Profile
                   </Link>
